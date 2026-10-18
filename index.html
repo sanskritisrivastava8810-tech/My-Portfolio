@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+
+    <title>Sanskriti Srivastava | Software Developer Portfolio</title>
+    <meta name="description"
+        content="Explore Sanskriti Srivastava's software projects, technical skills, hackathons, training and education.">
+
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b1020;
+            --panel: #11182b;
+            --card: #141c31;
+            --purple: #a78bfa;
+            --bright: #8b5cf6;
+            --text: #f1f5f9;
+            --muted: #b9c4d6;
+            --border: #2b3153;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 65px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            color: var(--purple);
+            font-size: 29px;
+            margin-bottom: 25px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            margin-top: -15px;
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 16, 32, 0.96);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--purple);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 23px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 80px 0;
+            background:
+                radial-gradient(ellipse at 5% 40%,
+                    #292052 0%, transparent 43%),
+                linear-gradient(120deg, #11182b, #0b1020 80%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .photo-wrap {
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 225px;
+            height: 225px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 5px solid var(--purple);
+            box-shadow: 0 0 35px rgba(139, 92, 246, 0.35);
+        }
+
+        .eyebrow {
+            color: #c4b5fd;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            color: var(--purple);
+            font-size: clamp(36px, 5vw, 55px);
+            line-height: 1.2;
+            margin: 8px 0 12px;
+        }
+
+        .hero h2 {
+            color: white;
+            font-size: 21px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 23px;
+            border-radius: 28px;
+            border: 1px solid var(--purple);
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #8b5cf6, #6d28d9);
+            color: white;
+        }
+
+        .btn-outline {
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 22px rgba(139, 92, 246, 0.25);
+        }
+
+        /* ===== ABOUT ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 38px;
+        }
+
+        .about-text {
+            padding-right: 30px;
+            border-right: 1px solid var(--border);
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .detail-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .detail-chip {
+            color: #ddd6fe;
+            background: #20264b;
+            border: 1px solid #393568;
+            border-radius: 25px;
+            padding: 7px 13px;
+            font-size: 13px;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 11px;
+        }
+
+        .skill {
+            padding: 8px 16px;
+            background: #20264b;
+            border: 1px solid #393568;
+            color: #ede9fe;
+            border-radius: 25px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: #373078;
+            border-color: var(--purple);
+        }
+
+        .skill-note {
+            color: #94a3b8;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        /* ===== PROJECT CARDS ===== */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            background: linear-gradient(145deg, #171e33, #101729);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.3s, border-color 0.3s,
+                box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--purple);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.13);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            background: #30265e;
+            color: #ddd6fe;
+            border-radius: 13px;
+            font-size: 23px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            color: #e9e3ff;
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: auto;
+        }
+
+        .tag {
+            background: #252b51;
+            color: #ddd6fe;
+            border-radius: 20px;
+            padding: 4px 10px;
+            font-size: 11px;
+        }
+
+        /* ===== ACHIEVEMENTS ===== */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(145deg, #171e33, #101729);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-4px);
+        }
+
+        .achievement-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            background: #30265e;
+            border-radius: 13px;
+            color: #ddd6fe;
+            font-size: 23px;
+        }
+
+        .achievement-card h3 {
+            color: #e9e3ff;
+            font-size: 17px;
+        }
+
+        .achievement-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .count-label {
+            display: inline-block;
+            margin-top: 13px;
+            background: #252b51;
+            color: #ddd6fe;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* ===== TRAINING AND EDUCATION ===== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .info-card {
+            background: linear-gradient(145deg, #171e33, #101729);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            color: #e9e3ff;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .info-label {
+            color: var(--purple);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .workshop-note {
+            border-left: 3px solid var(--purple);
+            padding-left: 13px;
+            margin-top: 18px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            padding: 55px 0;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at bottom,
+                    #292052 0%, transparent 65%),
+                #101729;
+        }
+
+        .contact-section h2 {
+            color: var(--purple);
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .contact-section>.container>p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-card {
+            max-width: 620px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: rgba(20, 28, 49, 0.9);
+        }
+
+        .contact-item {
+            color: var(--muted);
+            margin: 12px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item a {
+            color: #c4b5fd;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 22px 15px;
+            background: #0b1020;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 220px 1fr;
+                gap: 30px;
+            }
+
+            .profile-photo {
+                width: 190px;
+                height: 190px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: 92%;
+            }
+
+            nav {
+                padding: 15px 0;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 10px 16px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 45px 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .profile-photo {
+                width: 165px;
+                height: 165px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .section {
+                padding: 45px 0;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .about-grid,
+            .two-column,
+            .achievement-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text {
+                padding-right: 0;
+                padding-bottom: 25px;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .card,
+            .info-card,
+            .achievement-card {
+                padding: 22px;
+            }
+        }
+
+        /* Purple glow for GitHub and LinkedIn navbar links */
+        .nav-glow {
+            color: #d8b4fe;
+            text-decoration: none;
+            text-shadow: 0 0 8px rgba(168, 85, 247, 0.65);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .nav-glow:hover,
+        .nav-glow:focus-visible {
+            color: #ffffff;
+            text-shadow:
+                0 0 5px #ffffff,
+                0 0 12px #a855f7,
+                0 0 24px #9333ea,
+                0 0 35px rgba(147, 51, 234, 0.85);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo"><span>&lt;/&gt;</span> Sanskriti</a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+
+                <div class="photo-wrap">
+                    <img src="images/profile.jpg" alt="Sanskriti Srivastava profile photo" class="profile-photo">
+                </div>
+
+                <div>
+                    <p class="eyebrow">Hello, I'm</p>
+                    <h1>Sanskriti Srivastava</h1>
+                    <h2>Final-Year B.Tech CSE Student</h2>
+
+                    <p>
+                        Aspiring Software Developer passionate about
+                        programming, technology and building useful
+                        software projects. I enjoy learning new skills,
+                        exploring ideas and taking on new challenges.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="resume/Sanskriti Resume.pdf" download class="btn btn-primary">
+                            ↓ Download My Resume
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT AND SKILLS -->
+        <section class="section" id="about">
+            <div class="container about-grid">
+
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+
+                    <p>
+                        I am a B.tech final-year Computer Science and
+                        Engineering student, Lucknow.
+                    </p>
+
+                    <p>
+                        I am a passionate learner who enjoys exploring
+                        new technologies and developing software projects.
+                        I am continuously working to improve my technical
+                        knowledge, problem-solving and communication skills.
+                    </p>
+
+                    <div class="detail-list">
+                        <span class="detail-chip">🎓 B.Tech CSE</span>
+                        <span class="detail-chip">📍 Lucknow, India</span>
+                        <span class="detail-chip">💻 Software Development</span>
+                    </div>
+                </div>
+
+                <div id="skills">
+                    <h2 class="section-title">Technical Skills</h2>
+
+                    <div class="skills-list">
+                        <span class="skill">Python</span>
+                        <span class="skill">Java</span>
+                        <span class="skill">HTML</span>
+                        <span class="skill">CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">React</span>
+                        <span class="skill">Git & GitHub</span>
+                    </div>
+
+                    <p class="skill-note">
+                        Skills are listed according to the technologies
+                        used or explored in my learning and projects.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+            <div class="container">
+
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">
+                    Projects I have built, explored or worked on.
+                </p>
+
+                <div class="project-grid">
+
+                    <article class="card">
+                        <div class="project-icon">🎬</div>
+                        <h3>Movie Recommendation System</h3>
+                        <p>
+                            A project designed to help users discover
+                            movies through a recommendation system.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Flask</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-icon">🏨</div>
+                        <h3>Hotel Management System</h3>
+                        <p>
+                            A software project focused on organizing
+                            hotel information and management tasks.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-icon">🧾</div>
+                        <h3>Bill Payment System</h3>
+                        <p>
+                            A project focused on managing bill payment
+                            information and related operations.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Project Development</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-icon">🔐</div>
+                        <h3>AI Powered Door Lock System</h3>
+                        <p>
+                            A smart door-locking project exploring
+                            technology-assisted access control.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Smart Systems</span>
+                            <span class="tag">AI Concept</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-icon">📝</div>
+                        <h3>Google Meet Summarizer</h3>
+                        <p>
+                            A project designed to summarize meeting
+                            content and make key information easier
+                            to review.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">APIs</span>
+                            <span class="tag">Text Summarization</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-icon">🌍</div>
+                        <h3>GlobeTrotter</h3>
+                        <p>
+                            A travel-planning web project focused on
+                            helping users explore destinations and
+                            organize trip information.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">React</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Odoo Hackathon</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- HACKATHONS AND ACHIEVEMENTS -->
+        <section class="section" id="achievements">
+            <div class="container">
+
+                <h2 class="section-title">Hackathons & Achievements</h2>
+                <p class="section-subtitle">
+                    Participation, collaboration and hands-on learning.
+                </p>
+
+                <div class="achievement-grid">
+
+                    <article class="achievement-card">
+                        <div class="achievement-top">
+                            <div class="achievement-icon">🏆</div>
+                            <div>
+                                <h3>Smart India Hackathon (SIH)</h3>
+                                <p>Hackathon Participation</p>
+                            </div>
+                        </div>
+                        <p>
+                            Participated in SIH on two occasions,
+                            gaining exposure to problem-solving,
+                            teamwork and innovation.
+                        </p>
+                        <span class="count-label">Participated 2 times</span>
+                    </article>
+
+                    <article class="achievement-card">
+                        <div class="achievement-top">
+                            <div class="achievement-icon">💻</div>
+                            <div>
+                                <h3>Odoo Hackathon</h3>
+                                <p>Hackathon Participation</p>
+                            </div>
+                        </div>
+                        <p>
+                            Participated in Odoo Hackathon twice.
+                            GlobeTrotter is included among my
+                            hackathon-related project experiences.
+                        </p>
+                        <span class="count-label">Participated 2 times</span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAINING AND WORKSHOPS -->
+        <section class="section" id="training">
+            <div class="container">
+
+                <h2 class="section-title">Training & Workshops</h2>
+
+                <div class="two-column">
+
+                    <article class="info-card">
+                        <p class="info-label">Training</p>
+                        <h3>Learnovate — GrassTech</h3>
+                        <p>
+                            Completed a 90-hours training program
+                            associated with GrassTech.
+                        </p>
+                        <div class="tags" style="margin-top: 16px;">
+                            <span class="tag">90-Hours Training</span>
+                            <span class="tag">Completed</span>
+                        </div>
+                    </article>
+
+                    <article class="info-card">
+                        <p class="info-label">Workshop</p>
+                        <h3>Design to Deploy – A Full Stack Web Journey</h3>
+                        <p>
+                            Completed a 3-day technical workshop organized by
+                            Softpro India Computer Technologies (P) Ltd.,
+                            in collaboration with Dr. APJ Abdul Kalam Technical
+                            University, Lucknow. Gained exposure to the full-stack
+                            web development journey, from design to deployment.
+                        </p>
+
+                        <div class="tags" style="margin-top: 16px;">
+                            <span class="tag">Softpro India</span>
+                            <span class="tag">3-Day Workshop</span>
+                            <span class="tag">Full Stack Development</span>
+                            <span class="tag">Design to Deploy</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section" id="education">
+            <div class="container">
+
+                <h2 class="section-title">Education</h2>
+
+                <div class="two-column">
+
+                    <article class="info-card">
+                        <p class="info-label">Undergraduate</p>
+                        <h3>B.Tech — Computer Science & Engineering</h3>
+                        <p>
+                            Babu Banarasi Das Northern India Institute
+                            of Technology, Lucknow
+                        </p>
+                        <p>Final-year student</p>
+                    </article>
+
+                    <article class="info-card">
+                        <p class="info-label">School Education</p>
+                        <h3>Intermediate — UP Board</h3>
+                        <p>Percentage: 76.65%</p>
+                        <div class="workshop-note">
+                            <p>High School — UP Board: 83.33%</p>
+                            <p>School: Parvati IC</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+
+                <h2>Let's Connect</h2>
+                <p>
+                    Feel free to contact me for opportunities,
+                    collaborations and professional connections.
+                </p>
+
+                <div class="contact-card">
+
+                    <p class="contact-item">
+                        ✉ Email:
+                        <a href="mailto:sanskritisrivastava8810@gmail.com">
+                            sanskritisrivastava8810@gmail.com
+                        </a>
+                    </p>
+
+                    <p class="contact-item">
+                        ☎ Phone:
+                        <a href="tel:+91881084525">
+                            +91 881084525
+                        </a>
+                    </p>
+
+                    <!-- Replace # with your real profile URLs -->
+                    <div class="buttons" style="justify-content: center; margin-top: 20px;">
+                        <a href="https://github.com/sanskritisrivastava8810-tech" class="nav-glow" target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/sanskriti-srivastava-411749298" class="nav-glow"
+                            target="_blank" rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                © 2026 Sanskriti Srivastava | Personal Developer Portfolio
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
